@@ -1,0 +1,73 @@
+<div *ngIf="visible" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+
+    <div class="bg-slate-800 text-gray-800 rounded-xl shadow-xl w-full max-w-2xl p-6 relative">
+        <!-- Header Form -->
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-semibold text-white">{{modoEdicion ? 'Editar colaborador' : 'Nuevo colaborador' }}</h3>
+            <button class="text-gray-500 hover:text-red-600 text-2xl" (click)="cerrarModal()">
+                &times;
+            </button>
+        </div>
+
+        <!-- Form -->
+        <form #formColaborador="ngForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div>
+                <input class="border p-2 rounded w-full" placeholder="Nombre" name="nombre" required [(ngModel)]="colaborador.NOMBRE" #nombre="ngModel">
+                <small class="text-red-600" *ngIf="nombre.invalid && nombre.touched">
+                    El nombre es obligatorio
+                </small>
+            </div>
+            <div>
+                <input class="border p-2 rounded w-full" placeholder="Apellido" name="apellido" required [(ngModel)]="colaborador.APELLIDO" #apellido="ngModel">
+                <small class="text-red-600" *ngIf="apellido.invalid && apellido.touched">
+                    El apellido es obligatorio
+                </small>
+            </div>
+            <div>
+                <input class="border p-2 rounded w-full" placeholder="Dirección" name="direccion" required [(ngModel)]="colaborador.DIRECCION" #direccion="ngModel">
+                <small class="text-red-600" *ngIf="direccion.invalid && direccion.touched">
+                    La dirección es obligatoria
+                </small>
+            </div>
+            <div>
+                <input type="number" class="border p-2 rounded w-full" placeholder="Edad" name="edad" required min="1" [(ngModel)]="colaborador.EDAD" #edad="ngModel">
+                <small class="text-red-600" *ngIf="edad.invalid && edad.touched">
+                    Edad válida requerida
+                </small>
+            </div>
+            <div>
+                <input class="border p-2 rounded w-full" placeholder="Profesión" name="profesion" required [(ngModel)]="colaborador.PROFESION" #profesion="ngModel">
+                <small class="text-red-600" *ngIf="profesion.invalid && profesion.touched">
+                    La profesión es obligatoria
+                </small>
+            </div>
+            <div>
+                <select class="border p-2 rounded w-full" name="estadocivil" required
+                    [(ngModel)]="colaborador.ESTADOCIVIL" #estadocivil="ngModel">
+                    <option value="" disabled selected>
+                        Seleccione estado civil
+                    </option>
+                    <option value="Soltero">Soltero</option>
+                    <option value="Casado">Casado</option>
+                    <option value="Divorciado">Divorciado</option>
+                    <option value="Viudo">Viudo</option>
+                </select>
+                <small class="text-red-600" *ngIf="estadocivil.invalid && estadocivil.touched">
+                    Seleccione un estado civil
+                </small>
+            </div>
+        </form>
+        <!-- Footer Form -->
+        <div class="flex justify-end gap-3 mt-6">
+            <button type="button" class="px-4 py-2 rounded border text-white" (click)="cerrarModal()">
+                Cancelar
+            </button>
+            <button type="button" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                [disabled]="formColaborador.invalid" (click)="guardarColaborador()">
+              {{ modoEdicion ? 'Actualizar' : 'Guardar' }}
+            </button>
+        </div>
+
+    </div>
+</div>
