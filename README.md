@@ -22,8 +22,10 @@ src/app/
  --app.component.ts
 
 ## Instalación y ejecución
-Abrir datosempleadosfe e instalar dependencias y tailwind css
-NPM INSTALL || npm install tailwindcss @tailwindcss/postcss postcss --force
+Para la instalación y crear el proyecto de angular y NPM Ejecutar la siguiente:
+ng new datosempleadosfe    
+Luego de ejecutar hacer el npm install tailwind para su uso.
+|| npm install tailwindcss @tailwindcss/postcss postcss --force
 luego ya ejecutar  NG SERVE y abrir en el navegador el http://localhost:4200/
 
 ### Requisitos previos
