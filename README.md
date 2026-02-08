@@ -12,14 +12,14 @@ Fue desarrollado con Angular y Tailwind CSS, consumiendo una API REST desarrolla
 
 ## Estructura del proyecto
 src/app/
-|── components/
-│   ├── colaborador/
-│   ├── colaborador-modal/
-├── services/
-│   └── colaborador.service.ts
-├── models/
-│   └── colaborador.model.ts
-└── app.component.ts
+ --components/
+  --colaborador/
+  --colaborador-modal/
+ --services/
+  --colaborador.service.ts
+ --models/
+  --colaborador.model.ts
+ --app.component.ts
 
 ## Instalación y ejecución
 Abrir datosempleadosfe e instalar dependencias y tailwind css
